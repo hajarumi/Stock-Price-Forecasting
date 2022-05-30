@@ -8,7 +8,7 @@ hajarumitsforecasts
 hajarumitsforecasts$fitted
 hajarumitsforecasts$SSE
 HoltWinters(hajarumits, beta=FALSE, gamma=FALSE, l.start=0)
-#Prediksi Bulan ke 20-29 (Forecast 20-29 months after)
+#Prediksi 10 Bulan ke depan (Forecast of 10 months after)
 library(forecast)
 hajarumitsforecasts2<-"forecast"(hajarumitsforecasts, h=ifelse(frequency(hajarumitsforecasts$x)>1,2*frequency(object$x),10), level=c(80,95),fan=FALSE,lambda=NULL, biasadj=FALSE)
 hajarumitsforecasts2
