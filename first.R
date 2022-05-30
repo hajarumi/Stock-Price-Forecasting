@@ -1,0 +1,18 @@
+#Plot Data
+hajarumi<-scan("E:/PLAYING GAME/1.txt")
+hajarumits<-ts(hajarumi, frequency = 1, start = c(1,1))
+hajarumits
+#Prediksi(Forecasting)
+hajarumitsforecasts <- HoltWinters(hajarumits, beta=FALSE, gamma=FALSE)
+hajarumitsforecast
+hajarumitsforecasts$fitted
+hajarumitsforecasts$SSE
+HoltWinters(hajarumits, beta=FALSE, gamma=FALSE, l.start=0)
+#Prediksi(Forecasting Bulan ke 202-211)
+library(forecast)
+hajarumitsforecasts2<-"forecast"(hajarumitsforecasts, h=ifelse(frequency(hajarumitsforecasts$x)>1,2*frequency(object$x),10), level=c(80,95),fan=FALSE,lambda=NULL, biasadj=FALSE)
+hajarumitsforecasts2
+#Plot Prediksi(Forecasting Bulan ke 202-211)
+plot(hajarumitsforecasts2)
+
+
